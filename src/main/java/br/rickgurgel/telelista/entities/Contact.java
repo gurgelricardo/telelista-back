@@ -1,11 +1,11 @@
 package br.rickgurgel.telelista.entities;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.springframework.boot.autoconfigure.web.WebProperties;
 
 import java.util.UUID;
 
@@ -14,9 +14,11 @@ import java.util.UUID;
 @Getter
 @Setter
 @Entity
+@Table(name = "tb_contact")
 public class Contact {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.UUID)
     private UUID id;
     private String name;
     private String number;
